@@ -3,7 +3,7 @@ import API from "../utils/API";
 import SearchBar from "./SearchBar";
 
 
-//Search Rrsults table in Act 19 is = table.js -Namita
+//Search Results table in Act 19 is = table.js -Namita
 
 class Table extends React.Component {
     state = {
@@ -19,7 +19,7 @@ class Table extends React.Component {
     searchEmployee = () => {
         API.search()
             .then(res => {
-                //   console.log("API results", res.data.results)
+                  console.log("API results", res.data.results)
                 this.setState({ employees: res.data.results })
             }
             )
@@ -36,7 +36,7 @@ class Table extends React.Component {
 
     render() {
         return (
-            <div>Sample Table
+            <div>
                       <SearchBar 
                           search={this.state.search}
                           handleFormSubmit={this.handleFormSubmit}
@@ -46,9 +46,13 @@ class Table extends React.Component {
                 <table class="table table-dark">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
                             <th scope="col">First</th>
                             <th scope="col">Last</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">DOB</th>
+
+
                         </tr>
                     </thead>
                     <tbody>
@@ -57,9 +61,10 @@ class Table extends React.Component {
                                 <th scope="row">{index + 1}</th>
                                 <td>{employee.name.first}</td>
                                 <td>{employee.name.last}</td>
+                                <td>{employee.email}</td>
+                                <td>{employee.dob.date}</td>
                             </tr>
                         ))}
-
                     </tbody>
                 </table>
 
