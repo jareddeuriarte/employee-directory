@@ -1,10 +1,13 @@
 import React from "react";
+// import Table from "./Table";
+
 
 //search for employee by name in search bar
 
 
 function SearchBar(props) {
-    console.log(props);
+    console.log(props.search);
+ 
     return (
         <form>
             <div className="form-group">
@@ -25,5 +28,7 @@ function SearchBar(props) {
         </form>
     )
 }
+
+
 
 export default SearchBar;
